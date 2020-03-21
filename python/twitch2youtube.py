@@ -1,5 +1,5 @@
 import os
-import numpy as np
+#import numpy as np
 def parseOK(path):
     tab_init=[]
     tab_all=[]
@@ -35,8 +35,26 @@ def parseOK(path):
                 temp=(line.split('='))[1].rstrip()
                 tab_init.append(temp)
     tab_init.insert(0,nblien)
-    print(tab_all)
-    return tab_init
+#    print(tab_all)
+    return tab_all
             
 link="time.txt"
+list_fic=[]
+pos_nom=[]
 firstparse=parseOK(link)
+with open (link) as f:
+    temp_fic=list(f)
+    for element in temp_fic:
+        list_fic.append(element.strip()) 
+print(firstparse)
+print(list_fic)
+for x in range(len(list_fic)):
+    temp=list_fic[x]
+    if 'nom' in temp:
+        pos_nom.append(x)
+print(pos_nom)
+if len(pos_nom)!=len(firstparse):
+    print("Input file error")
+    exit
+for i in range (len(firstparse)):
+    print(firstparse[i][2])
