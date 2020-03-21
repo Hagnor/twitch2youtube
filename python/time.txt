@@ -1,9 +1,17 @@
 lien=https://twitch.tv/videos/558751805
+nom=0103
 0-30.30
 30-1.10.30
 1.10.00-1.15.10
 mode=L
 lien=https://twitch.tv/videos/559219240
+nom=0203
 2-20.30
 20-1.00.00
 mode=E
+lien=https://twitch.tv/videos/558751806
+nom=0103
+0-30.30
+30-1.10.30
+1.10.00-1.15.10
+mode=L
