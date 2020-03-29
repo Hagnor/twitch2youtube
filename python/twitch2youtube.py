@@ -37,6 +37,9 @@ def parseOK(path):
     tab_init.insert(0,nblien)
 #    print(tab_all)
     return tab_all
+
+def parsetime(time):
+    print (time)
             
 link="time.txt"
 list_fic=[]
@@ -56,5 +59,22 @@ print(pos_nom)
 if len(pos_nom)!=len(firstparse):
     print("Input file error")
     exit
+
 for i in range (len(firstparse)):
-    print(firstparse[i][2])
+    posdepart=pos_nom[i]+1
+    nombretime=firstparse[i][2]
+    print (posdepart, nombretime)
+    for j in range (posdepart, posdepart+nombretime):
+        print(firstparse[0])
+#        firstparse[0].append('test')
+#        print(firstparse[0])
+#        a=parsetime(list_fic[j])
+    
+        
+
+
+#    for j in range (posdepart, posdepart+firstparse[i][2]):
+#        print(firstparse[i][j])
+
+    
+    
