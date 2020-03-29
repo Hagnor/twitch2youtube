@@ -1,5 +1,4 @@
 import os
-#import numpy as np
 def parseOK(path):
     tab_init=[]
     tab_all=[]
@@ -11,7 +10,7 @@ def parseOK(path):
             nline=nline+1
             if  'lien' in line:
                 if block!=0:
-                    print("Input file error")
+                    print("Input file error, lien")
                     exit()
                 temp=(line.split('='))[1].rstrip()
                 tab_init.append(temp)
@@ -19,7 +18,7 @@ def parseOK(path):
                 nblien=nblien+1
             if 'mode' in line:
                 if block==0:
-                    print("Input file error")
+                    print("Input file error, mode")
                     exit()
                 temp=(line.split('='))[1].rstrip()
                 temp1=nline-(block)
@@ -30,18 +29,45 @@ def parseOK(path):
                 block=0
             if 'nom' in line:
                 if block==0:
-                    print("Input file error")
+                    print("Input file error, nom")
                     exit()
                 temp=(line.split('='))[1].rstrip()
                 tab_init.append(temp)
     tab_init.insert(0,nblien)
-#    print(tab_all)
     return tab_all
 
 def parsetime(time):
-    print (time)
+    tabtemp=[]
+    tabok=[]
+    if '-' in time:
+        tabtemp=(time.split('-'))
+        for i in range (2):
+            if "." in tabtemp[i]:
+                tabtemp2=(tabtemp[i].split('.'))
+                if len(tabtemp2)==2 or len(tabtemp2)==3:
+                    for j in range (len(tabtemp2)):
+                        if len(tabtemp2[j])==1:
+                            tabtemp2[j]='0'+tabtemp2[j]
+                    if len(tabtemp2)==2:
+                        tabok.append('00:'+tabtemp2[0]+':'+tabtemp2[1])
+                    if len(tabtemp2)==3:
+                        tabok.append(tabtemp2[0]+':'+tabtemp2[1]+':'+tabtemp2[2])                        
+                else:
+                    print("Input file error, plus de 2 .")
+                    exit()  
+            else:
+                a=tabtemp[i]
+                if len(a)==1:
+                    a='0'+a
+                tabok.append('00:'+a+':00')
+        retour=tabok[0]+'-'+tabok[1]
+        return retour
+    else:
+        print("Input file error, pas de -")
+        exit()
             
 link="time.txt"
+linkvideo=""
 list_fic=[]
 pos_nom=[]
 firstparse=parseOK(link)
@@ -49,32 +75,23 @@ with open (link) as f:
     temp_fic=list(f)
     for element in temp_fic:
         list_fic.append(element.strip()) 
-print(firstparse)
-print(list_fic)
+#print(firstparse)
+#print(list_fic)
 for x in range(len(list_fic)):
     temp=list_fic[x]
     if 'nom' in temp:
         pos_nom.append(x)
-print(pos_nom)
+#print(pos_nom)
 if len(pos_nom)!=len(firstparse):
     print("Input file error")
     exit
-
 for i in range (len(firstparse)):
     posdepart=pos_nom[i]+1
     nombretime=firstparse[i][2]
-    print (posdepart, nombretime)
     for j in range (posdepart, posdepart+nombretime):
-        print(firstparse[0])
-#        firstparse[0].append('test')
-#        print(firstparse[0])
-#        a=parsetime(list_fic[j])
-    
-        
+        firstparse[i].append(parsetime(list_fic[j]))
+print(firstparse)
 
-
-#    for j in range (posdepart, posdepart+firstparse[i][2]):
-#        print(firstparse[i][j])
 
     
     
