@@ -39,7 +39,7 @@ class TwitchStream:
             print(f"{vid_path} already exists !\nEXITING")
             exit()
         os.mkdir(vid_path)
-        subprocess.call(["youtube-dl", f"{vid_path}/{self.name}.mp4", self.url])
+        subprocess.call(["youtube-dl", "-o", f"{vid_path}/{self.name}.mp4", self.url])
 
 # J'aurai pu mettre ça dans la classe mais bon c'est juste pour le dev donc osef
 def test_TwitchStream(stream):
