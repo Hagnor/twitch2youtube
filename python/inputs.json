@@ -1,21 +1,9 @@
 [
 {
-    "url":"https://twitch.tv/videos/558751805",
-    "name":"0103",
-    "splits":["0-30.30", "30-1.10.30","1.10.00-1.15.10"],
-    "yt_channel":"L"
-    
-},
-{
-    "url":"https://twitch.tv/videos/559219240",
-    "name":"0203",
-    "splits":["2-20.30", "20-1.00.00"],
+    "url":"https://www.twitch.tv/videos/583175865",
+    "name":"0404",
+    "splits":["00:00:10-00:01:10", "00:01:00-00:03:00"],
     "yt_channel":"E"
-},
-{
-    "url":"https://twitch.tv/videos/558751806",
-    "name":"0303",
-    "splits":["0-30.30", "30-1.10.30", "1.10.00-1.15.10"],
-    "yt_channel":"L"
+    
 }
 ]

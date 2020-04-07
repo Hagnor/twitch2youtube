@@ -42,11 +42,13 @@ class TwitchStream:
         subprocess.call(["youtube-dl", "-o", f"{self.path}/{self.name}.mp4", self.url])
     def video_split(self):
         # check if download succeed
-        if path.exists(f"{self.path}/{self.name}.mp4") :
+        if path.exists(f"{self.path}/{self.name}.mp4"):
+            i=1
             for split in self.splits:
                 start=split.split("-")[0]
                 end=split.split("-")[1]           
-                subprocess.call(["ffmpeg", "-i", f"{self.path}/{self.name}.mp4", "-vcodec", "copy", "-acodec", "copy", "-ss", start, "-to", end, f"{self.path}/{self.name}P{i}.mp4"
+                subprocess.call(["ffmpeg", "-i", f"{self.path}/{self.name}.mp4", "-vcodec", "copy", "-acodec", "copy", "-ss", start, "-to", end, f"{self.path}/{self.name}P{i}.mp4"])
+                i=i+1
         else:
             print(f"{self.path}/{self.name}.mp4 does not exists, download certainly failed")
 
