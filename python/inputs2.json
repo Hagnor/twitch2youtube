@@ -1,0 +1,32 @@
+[
+{
+    "url":"https://www.twitch.tv/videos/592189947",
+    "name":"1504P1",
+    "splits":["00:00:00-01:25:30", "01:25:00-02:44:00"],
+    "yt_channel":"L"
+},
+{
+    "url":"https://www.twitch.tv/videos/592323087",
+    "name":"1504P2",
+    "splits":["00:00:00-01:50:30", "01:50:30-03:40:42"],
+    "yt_channel":"L"
+},
+{
+    "url":"https://www.twitch.tv/videos/593856627",
+    "name":"1604",
+    "splits":["00:17:30-01:30:30", "01:30:00-02:44:15"],
+    "yt_channel":"L"
+},
+{
+    "url":"https://www.twitch.tv/videos/594071920",
+    "name":"1704P1",
+    "splits":["00:01:00-01:56:55"],
+    "yt_channel":"L"
+},
+{
+    "url":"https://www.twitch.tv/videos/594168675",
+    "name":"1704P2",
+    "splits":["00:00:00-02:16:32"],
+    "yt_channel":"L"
+}
+]
