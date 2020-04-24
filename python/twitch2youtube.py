@@ -68,11 +68,21 @@ def check_path(PATH):
         except (Exception) as e:
             print(f"Error creating {PATH} directory",e.args)
 
+def delete_backslash(json):
+    fin = open(json, "rt")
+    data = fin.read()
+    data = data.replace('\/', '/')
+    fin.close()
+    fin = open(json, "wt")
+    fin.write(data)
+    fin.close()
 
 
 if __name__ == '__main__':
+    json_file="inputs.json"
     check_path(PATH)
-    with open('inputs.json') as f: # On ouvre le JSON dans un with pour bien gerer les erreur
+    delete_backslash(json_file)
+    with open(json_file) as f: # On ouvre le JSON dans un with pour bien gerer les erreur
         i=1
         streams_data= json.load(f) # on charge tout le json dans streams_data donc on se retrouve avec une liste de dictionaire (dans ce cas là)
         for stream_raw in streams_data: # pour chanque entré dans la liste qu'on vient de creer
