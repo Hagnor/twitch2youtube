@@ -39,7 +39,7 @@ class TwitchStream:
             print(f"{self.path} already exists !\nEXITING")
             exit()
         os.mkdir(self.path)
-        subprocess.call(["youtube-dl", "-o", f"{self.path}/{self.name}.mp4", self.url])
+        subprocess.call(["streamlink", self.url, "best", "-o", f"{self.path}/{self.name}.mp4"])
     def video_split(self):
         # check if download succeed
         if path.exists(f"{self.path}/{self.name}.mp4"):
